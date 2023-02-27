@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>My Cart</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-light">
 
@@ -67,80 +68,6 @@
 
 </div>
 
-<script>
-function $$(a){return document.querySelector(a);}
-
-var itemCounter = $$("#itemCounter");
-var minusBtn = $$("#minusBtn");
-var plusBtn = $$("#plusBtn");
-
-var keepInCart = $$("#keepInCart");
-var deleteItem = $$("#deleteItem");
-
-var productCard = $$("#productCard");
-
-var qty = 1;
-
-function addCounter(){
-    qty++;
-    itemCounter.innerHTML = qty;
-}
-plusBtn.addEventListener('click', addCounter);
-
-function minusCounter(){
-    qty--;
-    itemCounter.innerHTML = qty;
-
-    if(qty <1){
-        minusBtn.style.display="none";
-        itemCounter.style.display="none";
-        plusBtn.style.display="none";
-
-        deleteItem.style.display="block";
-        keepInCart.style.display="block";
-
-    }
-}
-minusBtn.addEventListener('click', minusCounter);
-
-keepInCart.addEventListener('click', ()=>{
-    qty = 1;
-    itemCounter.innerHTML = qty;
-
-    deleteItem.style.display="none";
-    keepInCart.style.display="none";
-
-    minusBtn.style.display="block";
-    itemCounter.style.display="block";
-    plusBtn.style.display="block";
-
-})
-
-deleteItem.addEventListener('click', () =>{
-    productCard.innerHTML = "<span class='ml-2'>No items in cart</span>";
-})
-
-</script>
-
-<style>
-@import url("https://fonts.googleapis.com/css?family=Inter");
-body{
-    margin: 0;
-    font-family: 'Inter';
-}
-.container{
-    margin-top: 20vh;
-}
-.card{
-    border-radius: 10px;
-}
-#keepInCart, #deleteItem{
-    display: none;
-}
-#keepInCart{
-    margin-right: -30px;
-}
-</style>    
-
+<script src="script.js"></script>
 </body>
 </html>
